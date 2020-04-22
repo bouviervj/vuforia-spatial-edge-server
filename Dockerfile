@@ -1,23 +1,13 @@
 FROM ubuntu:18.04
 
-RUN mkdir -p /app
-WORKDIR /app
-
-
 RUN apt-get update; apt-get install -y curl git
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
-COPY .git ./.git/
-COPY .git* ./
-COPY *.js ./
-COPY libraries ./libraries
-COPY models ./models
-COPY scripts ./scripts
-COPY *.conf ./
-COPY *.json ./
-COPY *.sh ./
+RUN git clone https://github.com/bouviervj/vuforia-spatial-edge-server.git; mv vuforia-spatial-edge-server /app
+
+WORKDIR /app
 
 RUN npm install
 
