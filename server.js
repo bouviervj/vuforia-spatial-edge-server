@@ -188,6 +188,9 @@ services.updateAllObjcts = function (ip) {
     }
 };
 services.getIP = function () {
+
+    return '0.0.0.0';
+
     this.ips.interfaces = {};
     // if this is mobile, only allow local interfaces
     if (isMobile) {
