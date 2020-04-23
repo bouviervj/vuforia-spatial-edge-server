@@ -131,8 +131,10 @@ const netmask = '255.255.0.0'; // define the network scope from which this serve
 const fs = require('fs');       // Filesystem library
 const path = require('path');
 
-const spatialToolboxPath = path.join(os.homedir(), 'Documents', 'spatialToolbox');
-const oldRealityObjectsPath = path.join(os.homedir(), 'Documents', 'realityobjects');
+const homedir = /*os.homedir()*/ "/tmp" ;
+
+const spatialToolboxPath = path.join(homedir, 'Documents', 'spatialToolbox');
+const oldRealityObjectsPath = path.join(homedir, 'Documents', 'realityobjects');
 
 // All objects are stored in this folder:
 // Look for objects in the user Documents directory instead of __dirname+"/objects"
@@ -144,7 +146,7 @@ if (process.env.NODE_ENV === 'test' || os.platform() === 'android') {
 
 const addonPaths = [
     path.join(__dirname, 'addons'),
-    path.join(os.homedir(), 'Documents', 'spatialToolbox-addons'),
+    path.join(homedir, 'Documents', 'spatialToolbox-addons'),
 ];
 
 const Addons = require('./libraries/addons/Addons');
