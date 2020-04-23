@@ -15,7 +15,7 @@ RUN ls -la; \
     git submodule update --init --recursive; \
     cd addons/vuforia-spatial-core-addon; \
     npm install; \
-    mkdir -p /root/Documents
+    mkdir -p /tmp/Documents
 
 RUN chmod 744 start.sh
 
