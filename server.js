@@ -50,8 +50,11 @@
  ******************************************** constant settings *******************************************************
  **********************************************************************************************************************/
 
+ const mkdirp = require('mkdirp');
+
 try {
     require('module-alias/register');
+
 } catch (err) {
     console.clear();
     console.log('\x1b[33mYou\'re not done with the installation! You need to execute the following commands:');
@@ -132,6 +135,8 @@ const fs = require('fs');       // Filesystem library
 const path = require('path');
 
 const homedir = /*os.homedir()*/ "/tmp" ;
+const made = mkdirp.sync('/tmp/Documents');
+
 
 const spatialToolboxPath = path.join(homedir, 'Documents', 'spatialToolbox');
 const oldRealityObjectsPath = path.join(homedir, 'Documents', 'realityobjects');
